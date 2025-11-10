@@ -53,7 +53,7 @@ This tool prepares a project for a conversational, manual workflow with an AI as
 3.  Launch your AI assistant (e.g., `gemini`).
 4.  Give the assistant its first instruction to start the process:
     ```
-    Let's start. Read the instructions from `./.specify/templates/commands/specify.md` and my brief from `./brief.md`, then create a draft of spec.md.
+    Let's start. Read the instructions from `./templates/commands/specify.md` and my brief from `./brief.md`, then create a draft of spec.md.
     ```
 The assistant will then guide you through the three stages: creating the `spec.md`, `plan.md`, and `tasks.md` files.
 
