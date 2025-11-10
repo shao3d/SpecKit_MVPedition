@@ -43,19 +43,23 @@ specify init my-new-project
 
 ### 3. Start the Manual Workflow
 
-This tool prepares a project for a conversational, manual workflow with an AI assistant like Gemini CLI or Claude.
+This tool prepares a project for a conversational, manual workflow with an AI assistant like Claude Code, Codex, Gemini CLI, etc.
 
-1.  Navigate into your new project folder:
+1. Go to the project folder:
     ```bash
     cd my-new-project
     ```
-2.  Create a brief file (e.g., `brief.md`) describing your project.
-3.  Launch your AI assistant (e.g., `gemini`).
-4.  Give the assistant its first instruction to start the process:
+
+2. Put the `brief.md` file of your new project in the project folder
+
+3. Launch your AI agent (e.g., Claude Code, Codex, Gemini CLI, etc)
+
+4. Start the process with a prompt like:
     ```
-    Let's start. Read the instructions from `./templates/commands/specify.md` and my brief from `./brief.md`, then create a draft of spec.md.
+    Let's start. Read the instructions from ./.specify/templates/commands/specify.md and my brief.md and we'll interactively create a draft of spec.md.
     ```
-The assistant will then guide you through the three stages: creating the `spec.md`, `plan.md`, and `tasks.md` files.
+
+The AI agent will then guide you through the three stages: creating the `spec.md`, `plan.md`, and `tasks.md` files.
 
 ## 🔧 Specify CLI Reference
 
