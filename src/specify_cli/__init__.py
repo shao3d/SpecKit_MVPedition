@@ -112,11 +112,19 @@ def init_git_repo(project_path: Path) -> Tuple[bool, Optional[str]]:
         os.chdir(original_cwd)
 
 def copy_local_template(project_path: Path, is_current_dir: bool):
-    """Copies the local template directory to the new project."""
+    """Copies the local template directory to the new project, supporting both installed and development modes."""
     try:
-        source_path = Path(__file__).parent.parent / "templates"
-        if not source_path.is_dir():
-            raise FileNotFoundError(f"Templates directory not found at {source_path}")
+        # Path for installed package (site-packages/specify_cli/templates)
+        installed_path = Path(__file__).parent / "templates"
+        # Path for local development (project_root/templates)
+        dev_path = Path(__file__).parent.parent.parent / "templates"
+
+        if installed_path.is_dir():
+            source_path = installed_path
+        elif dev_path.is_dir():
+            source_path = dev_path
+        else:
+            raise FileNotFoundError(f"Templates directory not found at either {installed_path} or {dev_path}")
 
         dest_specify_path = project_path / ".specify"
         dest_templates_path = dest_specify_path / "templates"
