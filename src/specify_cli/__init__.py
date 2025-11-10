@@ -236,7 +236,7 @@ def init(
         "2. Put the [cyan]brief.md[/cyan] file of your new project in the project folder",
         "3. Launch your AI agent (e.g., Claude Code, Codex, Gemini CLI, etc)",
         "4. Start the process with a prompt like:",
-        "   [dim]\"Let's start. Read the instructions from ./.specify/templates/commands/specify.md and my brief.md and we'll interactively create a draft of spec.md.\"[/dim]"
+        "   [dim]\"Let's start. Read the instructions from specify.md and my brief.md and we'll together interactivly create a draft of spec.md.\"[/dim]"
     ]
     console.print(Panel("\n".join(steps_lines), title="Next Steps", border_style="cyan", padding=(1,2)))
 
