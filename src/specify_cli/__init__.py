@@ -114,7 +114,7 @@ def init_git_repo(project_path: Path) -> Tuple[bool, Optional[str]]:
 def copy_local_template(project_path: Path, is_current_dir: bool):
     """Copies the local template directory to the new project."""
     try:
-        source_path = Path(__file__).parent.parent.parent / "templates"
+        source_path = Path(__file__).parent.parent / "templates"
         if not source_path.is_dir():
             raise FileNotFoundError(f"Templates directory not found at {source_path}")
 
