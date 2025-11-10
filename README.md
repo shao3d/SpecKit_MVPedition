@@ -1,10 +1,10 @@
 <div align="center">
-    <h1>🌱 Spec Kit</h1>
+    <h1>🌱 Spec Kit MVP</h1>
     <h3><em>Build high-quality software faster.</em></h3>
 </div>
 
 <p align="center">
-    <strong>A lightweight toolkit for spec-driven development.</strong>
+    <strong>A lightweight MVP toolkit for rapid spec-driven development.</strong>
 </p>
 
 <p align="center">
@@ -27,6 +27,8 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 ## 🤔 What is Spec-Driven Development?
 
 Spec-Driven Development **flips the script** on traditional software development. For decades, code has been king — specifications were just scaffolding we built and discarded once the "real work" of coding began. Spec-Driven Development changes this: **specifications become executable**, directly generating working implementations rather than just guiding them.
+
+**This MVP implementation focuses on lightweight, rapid project documentation** - perfect for startups, prototypes, and teams that need to move fast without getting bogged down in enterprise-level documentation overhead.
 
 ## ⚡ Get Started
 
@@ -80,10 +82,10 @@ The `specify` command-line tool is used to initialize a new MVP project.
 
 ### Commands
 
-| Command | Description                                          |
-|---------|------------------------------------------------------|
-| `init`  | Initialize a new MVP project from the bundled template. |
-| `check` | Checks for the installation of `git`.                  |
+| Command | Description                                                        |
+|---------|--------------------------------------------------------------------|
+| `init`  | Initialize a new MVP project from the bundled lightweight template. |
+| `check` | Checks for the installation of `git`.                             |
 
 ### `init` Examples
 
