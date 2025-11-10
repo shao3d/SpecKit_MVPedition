@@ -127,6 +127,25 @@ rm gcm-linux_amd64.2.6.1.deb
 
 For support, please open a [GitHub issue](https://github.com/shao3d/SpecKit_MVPedition/issues/new). We welcome bug reports, feature requests, and questions about using Spec-Driven MVP Development.
 
+## 🙏 Attribution & Acknowledgments
+
+This project is inspired by and builds upon the original **[Spec Kit](https://github.com/github/spec-kit)** by GitHub.
+
+### Original Spec Kit
+- **Repository:** [github/spec-kit](https://github.com/github/spec-kit)
+- **Creator:** GitHub, Inc.
+- **License:** MIT License
+
+### This MVP Edition
+SpecKit_MVPedition is a modernized, lightweight version that:
+- Simplifies the original enterprise-level Spec Kit for rapid MVP development
+- Optimizes for startups, prototypes, and fast-moving teams
+- Maintains the core philosophy of spec-driven development while reducing complexity
+
+**We are deeply grateful to the original GitHub Spec Kit team for creating such an innovative approach to specification-driven development. Their work laid the foundation for this streamlined MVP edition.**
+
+This project maintains the same MIT license spirit as the original, ensuring open access to the spec-driven development methodology.
+
 ## 📄 License
 
 This project is licensed under the terms of the MIT open source license. Please refer to the [LICENSE](./LICENSE) file for the full terms.
