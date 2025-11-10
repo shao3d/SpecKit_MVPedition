@@ -233,9 +233,10 @@ def init(
 
     steps_lines = [
         "1. Go to the project folder: " + (f"[cyan]cd {project_name}[/cyan]" if not here else "[cyan]You're already there![/cyan]"),
-        "2. Launch your AI agent (e.g., Gemini CLI).",
-        "3. Start the process with a prompt like:",
-        "   [dim]\"Let's start. Read the instructions from ./.specify/templates/commands/specify.md and my brief, then create a draft of spec.md.\"[/dim]"
+        "2. Put the [cyan]brief.md[/cyan] file of your new project in the project folder",
+        "3. Launch your AI agent (e.g., Claude Code, Codex, Gemini CLI, etc)",
+        "4. Start the process with a prompt like:",
+        "   [dim]\"Let's start. Read the instructions from ./.specify/templates/commands/specify.md and my brief.md and we'll interactively create a draft of spec.md.\"[/dim]"
     ]
     console.print(Panel("\n".join(steps_lines), title="Next Steps", border_style="cyan", padding=(1,2)))
 
