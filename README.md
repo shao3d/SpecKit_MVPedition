@@ -8,11 +8,21 @@
 </p>
 
 <p align="center">
-    <a href="https://github.com/shao3d/SpecKit_MyEdition/blob/main/LICENSE"><img src="https://img.shields.io/github/license/shao3d/SpecKit_MyEdition" alt="License"/></a>
-    <a href="https://github.com/shao3d/SpecKit_MyEdition/stargazers"><img src="https://img.shields.io/github/stars/shao3d/SpecKit_MyEdition?style=social" alt="GitHub stars"/></a>
+    <a href="https://github.com/shao3d/SpecKit_MVPedition/blob/main/LICENSE"><img src="https://img.shields.io/github/license/shao3d/SpecKit_MVPedition" alt="License"/></a>
+    <a href="https://github.com/shao3d/SpecKit_MVPedition/stargazers"><img src="https://img.shields.io/github/stars/shao3d/SpecKit_MVPedition?style=social" alt="GitHub stars"/></a>
 </p>
 
 ---
+
+## Prerequisites
+
+- Python 3.11 or higher
+- [uv](https://docs.astral.sh/uv/) package manager
+
+Install uv:
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
 
 ## 🤔 What is Spec-Driven Development?
 
@@ -26,9 +36,12 @@ This guide describes the lightweight, MVP-focused workflow.
 
 Install the tool once using `uv`. This will make the `specify` command available system-wide.
 ```bash
-uv tool install specify-cli --from git+https://github.com/shao3d/SpecKit_MyEdition.git
+uv tool install specify-cli --from git+https://github.com/shao3d/SpecKit_MVPedition.git
 ```
-To upgrade, run the same command again with `--force`.
+To upgrade:
+```bash
+uv tool install specify-cli --from git+https://github.com/shao3d/SpecKit_MVPedition.git --force
+```
 
 ### 2. Initialize Your Project
 
@@ -110,7 +123,7 @@ rm gcm-linux_amd64.2.6.1.deb
 
 ## 💬 Support
 
-For support, please open a [GitHub issue](https://github.com/shao3d/SpecKit_MyEdition/issues/new). We welcome bug reports, feature requests, and questions about using Spec-Driven Development.
+For support, please open a [GitHub issue](https://github.com/shao3d/SpecKit_MVPedition/issues/new). We welcome bug reports, feature requests, and questions about using Spec-Driven Development.
 
 ## 📄 License
 
