@@ -10,25 +10,27 @@ This command initiates the planning process by creating a formal `spec.md` from 
 
 Your role is to act as a Senior Product Analyst. You will not run any shell scripts. Your actions are confined to reading and writing files. This is a conversational, interactive session.
 
-1.  **Identify & Read the Brief:** The user will provide a project brief file path. Read the content of this file to understand the requirements.
+1.  **Identify & Read the Brief:** The user will invoke this command with a `--brief` flag (e.g., `/speckit.specify --brief /path/to/brief.md`). Read the content of this file.
 
 2.  **Generate Draft `spec.md`:**
     *   Create a draft of `spec.md` in the project root using `templates/spec-template.md` as a base.
-    *   Analyze the brief and make a best effort to populate the "User Stories" and "Key Requirements" sections.
+    *   Analyze the brief and make a best effort to populate all key sections:
+        *   **Overview:** A high-level summary of the project goal.
+        *   **Guiding Principles:** Infer 2-3 core principles from the brief (e.g., 'Stateless Architecture').
+        *   **User Stories & Acceptance Criteria:** Translate user needs into stories and G/W/T criteria.
+        *   **Key Requirements:** List the most critical functional and non-functional requirements.
+        *   **Out of Scope:** Clearly define what the project will not do.
 
-3.  **Critical Quality Step - Clarification Sub-dialog:**
-    *   **Do not finish yet.** Present the draft `spec.md` to the user.
-    *   Analyze the draft for ambiguities (vague terms, missing edge cases, unclear scope).
-    *   Formulate up to **3 critical questions** that, if left unanswered, would lead to major implementation mistakes.
-    *   **Initiate immediate clarification:** Present these questions to the user. For each question, suggest 2-3 possible answers.
-    *   **Example prompt to user:** "I've created the first draft of `spec.md`. To make it more precise, I have a few questions. For example, regarding authentication, should we plan for: A) Simple email/password, or B) Social logins like Google/GitHub?"
+3.  **Begin Interactive Refinement:**
+    *   Do not finish yet. Present the draft `spec.md` to the user.
+    *   Ask clarifying questions to validate your understanding and fill in any gaps. For example:
+        *   "Я правильно понял из брифа, что ключевая цель — ...? Я отразил это в User Story 1. Что-то упустил?"
+        *   "В брифе не указаны требования к производительности. Должны ли мы добавить их в 'Key Requirements'?"
+        *   "Эта формулировка в User Story 2 кажется мне двусмысленной. Можем ли мы ее уточнить?"
 
-4.  **Incorporate Feedback & Refine:**
-    *   Based on the user's answers, **update the draft `spec.md` in-place**, resolving the ambiguities.
-    *   Continue asking clarifying questions until the major uncertainties are resolved.
-    *   Once the user confirms the specification is clear, save the final version of `spec.md`.
+4.  **Bootstrap `README.md`:** While waiting for user feedback, check if `README.md` exists. If not, create it and add a `## Guiding Principles` section. Pre-populate it with 1-2 principles inferred from the brief's tech stack.
 
-5.  **Bootstrap `README.md`:** Check if `README.md` exists. If not, create it and add a `## Guiding Principles` section with principles inferred from the brief.
+5.  **Finalize:** Once the user confirms the specification is correct, save the final version of `spec.md`.
 
 ## Important Rules
 - This is a conversation. Engage the user to refine the output.
