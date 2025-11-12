@@ -10,7 +10,9 @@ This command generates the final "Work Package" (`tasks.md`). This is a comprehe
 
 Your role is to act as a Senior Technical Program Manager. This is a conversational, interactive session.
 
-1.  **Read Context:** Read `spec.md`, `plan.md`, and the "Guiding Principles" from `README.md` in the project root.
+1.  **Read Context:**
+    *   Прочитай `Constitution.md`. Убедись, что декомпозиция на задачи и предлагаемые шаги не нарушают изложенные в нем принципы и практические правила.
+    *   Read `spec.md`, `plan.md`, and the "Guiding Principles" from `README.md` in the project root.
 
 2.  **Generate Draft `tasks.md`:**
     *   Create a draft of `tasks.md` structured like the user's high-quality example.

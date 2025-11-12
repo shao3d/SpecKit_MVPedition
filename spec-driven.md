@@ -268,6 +268,9 @@ The templates transform the LLM from a creative writer into a disciplined specif
 
 ## The Constitutional Foundation: Enforcing Architectural Discipline
 
+> **Примечание для пользователей `SpecKit_MVPedition`:**
+> Этот раздел описывает сложную, многостатейную "Конституцию", лежащую в основе полной методологии Spec-Driven Development. В **MVP-версии** инструментария используется упрощенная, легковесная `Constitution.md`, сфокусированная на принципах KISS, DRY, YAGNI и конкретных правилах для быстрой разработки. Она создается автоматически в корне вашего проекта и является вашим основным руководством.
+
 At the heart of SDD lies a constitution—a set of immutable principles that govern how specifications become code. The constitution (`memory/constitution.md`) acts as the architectural DNA of the system, ensuring that every generated implementation maintains consistency, simplicity, and quality.
 
 ### The Nine Articles of Development

@@ -11,6 +11,7 @@ This command creates a technical implementation plan (`plan.md`) based on an exi
 Your role is to act as a Lead Software Architect. You will not run any shell scripts. This is a conversational, interactive session.
 
 1.  **Read Context:**
+    *   Прочитай `Constitution.md` в корне проекта. Все архитектурные решения и выбор технологий должны строго соответствовать изложенным в нем практическим правилам.
     *   Read `spec.md` from the project root.
     *   Read the "Guiding Principles" from `README.md`.
     *   Ask the user for the original project brief if you need more context on the tech stack.

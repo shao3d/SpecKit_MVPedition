@@ -111,6 +111,25 @@ def init_git_repo(project_path: Path) -> Tuple[bool, Optional[str]]:
     finally:
         os.chdir(original_cwd)
 
+def generate_constitution(project_path: Path):
+    """Generates Constitution.md from template in the project root."""
+    try:
+        template_path = Path(__file__).parent / "templates" / "constitution-template.md"
+        constitution_path = project_path / "Constitution.md"
+
+        if template_path.exists():
+            with open(template_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+
+            with open(constitution_path, 'w', encoding='utf-8') as f:
+                f.write(content)
+
+            console.print(f"[green]✓[/green] Constitution.md created at {constitution_path}")
+        else:
+            console.print(f"[yellow]Warning: Constitution template not found at {template_path}[/yellow]")
+    except Exception as e:
+        console.print(f"[red]Error generating Constitution.md: {e}[/red]")
+
 def copy_local_template(project_path: Path, is_current_dir: bool):
     """Copies the local template directory to the new project."""
     try:
@@ -131,6 +150,10 @@ def copy_local_template(project_path: Path, is_current_dir: bool):
             
         shutil.copytree(source_path, dest_templates_path)
         console.print(f"[green]✓[/green] Templates copied to {dest_templates_path}")
+
+        # Generate Constitution.md from template
+        generate_constitution(project_path)
+
         return project_path
     except Exception as e:
         console.print(f"[red]Error copying local template: {e}[/red]")
