@@ -17,6 +17,7 @@ Usage:
     specify init --here
 """
 
+import importlib.resources
 import os
 import subprocess
 import sys
@@ -114,21 +115,23 @@ def init_git_repo(project_path: Path) -> Tuple[bool, Optional[str]]:
 def generate_constitution(project_path: Path):
     """Generates Constitution.md from template in the project root."""
     try:
-        template_path = Path(__file__).parent / "templates" / "constitution-template.md"
+        # Надежный способ чтения файла из пакета
+        content = importlib.resources.files('specify_cli.templates').joinpath('constitution-template.md').read_text(encoding='utf-8')
+
         constitution_path = project_path / "Constitution.md"
+        constitution_path.write_text(content, encoding='utf-8')
 
-        if template_path.exists():
-            with open(template_path, 'r', encoding='utf-8') as f:
-                content = f.read()
+        console.print(f"[green]✓[/green] Constitution.md created at {constitution_path}")
 
-            with open(constitution_path, 'w', encoding='utf-8') as f:
-                f.write(content)
-
-            console.print(f"[green]✓[/green] Constitution.md created at {constitution_path}")
-        else:
-            console.print(f"[yellow]Warning: Constitution template not found at {template_path}[/yellow]")
+    except FileNotFoundError:
+        # Эта ошибка означает, что пакет был собран неправильно
+        console.print("[red]Критическая ошибка: Файл шаблона конституции отсутствует в установленном пакете. Попробуйте переустановить specify-cli.[/red]")
+    except IOError as e:
+        # Эта ошибка связана с правами на запись в файловой системе
+        console.print(f"[red]Ошибка записи файла Constitution.md: {e}[/red]")
     except Exception as e:
-        console.print(f"[red]Error generating Constitution.md: {e}[/red]")
+        # Все остальные непредвиденные ошибки
+        console.print(f"[red]Неизвестная ошибка при создании Constitution.md: {e}[/red]")
 
 def copy_local_template(project_path: Path, is_current_dir: bool):
     """Copies the local template directory to the new project."""
