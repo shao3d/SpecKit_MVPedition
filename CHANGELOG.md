@@ -7,6 +7,37 @@ All notable changes to the Specify CLI and templates are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.21] - 2025-11-19
+
+### Changed
+
+- **DevContainer Optimization**: Commented out installation of less commonly used AI CLI tools (Auggie, Qwen, OpenCode, Amazon Q, CodeBuddy) to significantly speed up container setup time
+  - Installations remain available as commented code for users who need them
+  - Core AI CLIs (Copilot, Claude, Codex, Gemini) remain active
+  - Reduces setup time and container size while maintaining flexibility
+
+- **Documentation Alignment**: Rewritten `spec-driven.md` Constitutional Foundation section to accurately reflect MVP Edition philosophy
+  - Replaced enterprise-focused "Nine Articles of Development" with "Three Pillars of MVP Development" (KISS, DRY, YAGNI)
+  - Removed references to Library-First, CLI Interface Mandate, and strict TDD that are not implemented in MVP Edition
+  - Updated to emphasize pragmatism, speed, and simplicity over enterprise architectural patterns
+  - Eliminates confusion between full SDD methodology and MVP Edition implementation
+
+- **AI Assistant Quality Improvements**: Enhanced `specify.md` command template with self-correction mechanism
+  - AI assistants now scan drafts for `[NEEDS CLARIFICATION]` markers before presenting to users
+  - Reduces hallucinations and improves specification quality
+  - Ensures explicit user confirmation for ambiguous requirements
+
+- **Constitutional Enforcement**: Added MVP Checkpoints section to `plan-template.md`
+  - Operationalizes Constitution principles through concrete pre-implementation gates
+  - Includes KISS, YAGNI, and Pragmatic Testing checkpoints
+  - Updated Testing examples to emphasize Integration/E2E focus (Playwright, Pytest) over pure unit testing
+  - Prevents over-engineering and ensures alignment with MVP philosophy
+
+### Fixed
+
+- Documentation now accurately reflects what the MVP Edition actually implements vs. the full SDD methodology
+- Templates now enforce Constitution principles that were previously only documented
+
 ## [0.0.20] - 2025-10-14
 
 ### Added

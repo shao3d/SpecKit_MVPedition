@@ -14,7 +14,7 @@
 - **Backend**: [e.g., FastAPI, Django]
 - **Frontend**: [e.g., React, Vue, Vanilla JS]
 - **Database**: [e.g., PostgreSQL, SQLite]
-- **Testing**: [e.g., pytest, Jest]
+- **Testing**: [e.g., Playwright, Pytest (Integration focus)]
 - **Deployment**: [e.g., Docker, Vercel]
 
 ## 3. Key Implementation Steps
@@ -31,7 +31,15 @@
 5.  **Integration**: [e.g., Connect frontend to backend API]
 6.  **Finalization**: [e.g., Add basic styling, prepare for deployment]
 
-## 4. Project Structure
+## 4. MVP Checkpoints (Constitution)
+
+<!-- Ensure these are checked before implementation -->
+
+- [ ] **KISS**: Is the DB schema as flat as possible?
+- [ ] **YAGNI**: Are we using standard framework features instead of custom wrappers?
+- [ ] **Testing**: Do we have a plan for 1-2 critical E2E/Integration tests?
+
+## 5. Project Structure
 
 <!-- A simplified view of the final directory structure. -->
 

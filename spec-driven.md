@@ -204,19 +204,19 @@ These checklists force the LLM to self-review its output systematically, catchin
 
 #### 4. **Constitutional Compliance Through Gates**
 
-The implementation plan template enforces architectural principles through phase gates:
+The implementation plan template enforces architectural principles through MVP checkpoints:
 
 ```markdown
-### Phase -1: Pre-Implementation Gates
-#### Simplicity Gate (Article VII)
-- [ ] Using ≤3 projects?
-- [ ] No future-proofing?
-#### Anti-Abstraction Gate (Article VIII)
-- [ ] Using framework directly?
-- [ ] Single model representation?
+### MVP Checkpoints (Constitution)
+#### Simplicity Gate (KISS)
+- [ ] Is this the simplest possible solution?
+- [ ] Are we avoiding premature patterns?
+#### Necessity Gate (YAGNI)
+- [ ] Is this feature required for the current user story?
+- [ ] Are we avoiding "future-proofing"?
 ```
 
-These gates prevent over-engineering by making the LLM explicitly justify any complexity. If a gate fails, the LLM must document why in the "Complexity Tracking" section, creating accountability for architectural decisions.
+These gates prevent over-engineering by making the AI explicitly check alignment with MVP principles before implementation. If a checkpoint reveals unnecessary complexity, the plan must be simplified or the exception explicitly justified.
 
 #### 5. **Hierarchical Detail Management**
 
@@ -269,135 +269,80 @@ The templates transform the LLM from a creative writer into a disciplined specif
 ## The Constitutional Foundation: Enforcing Architectural Discipline
 
 > **Note for `SpecKit_MVPedition` users:**
-> This section describes the complex, multi-article "Constitution" that underlies the complete Spec-Driven Development methodology. In the **MVP version** of the toolkit, a simplified, lightweight `Constitution.md` is used, focused on KISS, DRY, YAGNI principles and specific rules for rapid development. It is created automatically in the root of your project and serves as your main guide.
+> This edition enforces Pragmatism, Speed, and Simplicity through three core pillars. The Constitution is designed specifically for rapid MVP development, not enterprise systems.
 
-At the heart of SDD lies a constitution—a set of immutable principles that govern how specifications become code. The constitution (`memory/constitution.md`) acts as the architectural DNA of the system, ensuring that every generated implementation maintains consistency, simplicity, and quality.
+At the heart of SDD lies a constitution—a set of immutable principles that govern how specifications become code. The constitution (`Constitution.md`) acts as the architectural DNA of the system, ensuring that every generated implementation maintains consistency, simplicity, and quality.
 
-### The Nine Articles of Development
+### The Three Pillars of MVP Development
 
-The constitution defines nine articles that shape every aspect of the development process:
+The constitution defines three core pillars that shape every aspect of the MVP development process:
 
-#### Article I: Library-First Principle
+#### Pillar I: KISS (Keep It Simple, Stupid)
 
-Every feature must begin as a standalone library—no exceptions. This forces modular design from the start:
-
-```text
-Every feature in Specify MUST begin its existence as a standalone library.
-No feature shall be implemented directly within application code without
-first being abstracted into a reusable library component.
-```
-
-This principle ensures that specifications generate modular, reusable code rather than monolithic applications. When the LLM generates an implementation plan, it must structure features as libraries with clear boundaries and minimal dependencies.
-
-#### Article II: CLI Interface Mandate
-
-Every library must expose its functionality through a command-line interface:
+Simplicity is the primary goal. A simple solution is easier to implement, test, maintain, and modify.
 
 ```text
-All CLI interfaces MUST:
-- Accept text as input (via stdin, arguments, or files)
-- Produce text as output (via stdout)
-- Support JSON format for structured data exchange
+We always choose the simplest path that solves the current task.
+No premature abstractions. Don't create complex patterns (services, repositories)
+for a single simple case.
 ```
 
-This enforces observability and testability. The LLM cannot hide functionality inside opaque classes—everything must be accessible and verifiable through text-based interfaces.
+This principle ensures that AI assistants generate straightforward, readable code rather than over-engineered architectures. When generating an implementation plan, the AI must start with the most direct solution and only add complexity when a second real use case appears.
 
-#### Article III: Test-First Imperative
+#### Pillar II: DRY (Don't Repeat Yourself)
 
-The most transformative article—no code before tests:
+We avoid duplication of business logic. A single source of truth reduces errors and simplifies maintenance.
 
 ```text
-This is NON-NEGOTIABLE: All implementation MUST follow strict Test-Driven Development.
-No implementation code shall be written before:
-1. Unit tests are written
-2. Tests are validated and approved by the user
-3. Tests are confirmed to FAIL (Red phase)
+Every piece of business logic should have a single, authoritative representation.
+Avoid copy-pasting logic across files or functions.
 ```
 
-This completely inverts traditional AI code generation. Instead of generating code and hoping it works, the LLM must first generate comprehensive tests that define behavior, get them approved, and only then generate implementation.
+This doesn't mean avoiding all repetition—repeated boilerplate is acceptable. What matters is avoiding duplicate implementations of the same business rules.
 
-#### Articles VII & VIII: Simplicity and Anti-Abstraction
+#### Pillar III: YAGNI (You Ain't Gonna Need It)
 
-These paired articles combat over-engineering:
+We don't write code "just in case." Any functionality that is not required to solve today's task is not implemented.
 
 ```text
-Section 7.3: Minimal Project Structure
-- Maximum 3 projects for initial implementation
-- Additional projects require documented justification
-
-Section 8.1: Framework Trust
-- Use framework features directly rather than wrapping them
+Any functionality that is not required to solve *today's* task is not implemented.
+Configuration in code: Don't create complex config systems for MVP.
+No admin panels for parameters that change once a year.
 ```
 
-When an LLM might naturally create elaborate abstractions, these articles force it to justify every layer of complexity. The implementation plan template's "Phase -1 Gates" directly enforce these principles.
-
-#### Article IX: Integration-First Testing
-
-Prioritizes real-world testing over isolated unit tests:
-
-```text
-Tests MUST use realistic environments:
-- Prefer real databases over mocks
-- Use actual service instances over stubs
-- Contract tests mandatory before implementation
-```
-
-This ensures generated code works in practice, not just in theory.
+This pillar prevents feature creep and keeps the MVP focused. AI assistants are instructed to push back on speculative features and "future-proofing" attempts.
 
 ### Constitutional Enforcement Through Templates
 
-The implementation plan template operationalizes these articles through concrete checkpoints:
+The implementation plan template operationalizes these pillars through concrete checkpoints:
 
 ```markdown
-### Phase -1: Pre-Implementation Gates
-#### Simplicity Gate (Article VII)
-- [ ] Using ≤3 projects?
-- [ ] No future-proofing?
+### MVP Checkpoints (Constitution)
 
-#### Anti-Abstraction Gate (Article VIII)
-- [ ] Using framework directly?
-- [ ] Single model representation?
+#### Simplicity Gate (KISS)
+- [ ] Is this the simplest possible solution?
+- [ ] Are we avoiding premature patterns?
 
-#### Integration-First Gate (Article IX)
-- [ ] Contracts defined?
-- [ ] Contract tests written?
+#### Necessity Gate (YAGNI)
+- [ ] Is this feature required for the current user story?
+- [ ] Are we avoiding "future-proofing"?
+
+#### Pragmatic Testing Gate
+- [ ] Are we focusing on Integration/E2E tests rather than 100% Unit coverage?
 ```
 
-These gates act as compile-time checks for architectural principles. The LLM cannot proceed without either passing the gates or documenting justified exceptions in the "Complexity Tracking" section.
+These gates act as checks to prevent over-engineering, which is the death of an MVP. The AI assistant cannot proceed without either passing these gates or explicitly documenting why an exception is justified.
 
-### The Power of Immutable Principles
+### Beyond Rules: An MVP Philosophy
 
-The constitution's power lies in its immutability. While implementation details can evolve, the core principles remain constant. This provides:
+The constitution isn't just a rulebook—it's a philosophy that shapes how AI assistants think about MVP development:
 
-1. **Consistency Across Time**: Code generated today follows the same principles as code generated next year
-2. **Consistency Across LLMs**: Different AI models produce architecturally compatible code
-3. **Architectural Integrity**: Every feature reinforces rather than undermines the system design
-4. **Quality Guarantees**: Test-first, library-first, and simplicity principles ensure maintainable code
-
-### Constitutional Evolution
-
-While principles are immutable, their application can evolve:
-
-```text
-Section 4.2: Amendment Process
-Modifications to this constitution require:
-- Explicit documentation of the rationale for change
-- Review and approval by project maintainers
-- Backwards compatibility assessment
-```
-
-This allows the methodology to learn and improve while maintaining stability. The constitution shows its own evolution with dated amendments, demonstrating how principles can be refined based on real-world experience.
-
-### Beyond Rules: A Development Philosophy
-
-The constitution isn't just a rulebook—it's a philosophy that shapes how LLMs think about code generation:
-
-- **Observability Over Opacity**: Everything must be inspectable through CLI interfaces
 - **Simplicity Over Cleverness**: Start simple, add complexity only when proven necessary
-- **Integration Over Isolation**: Test in real environments, not artificial ones
-- **Modularity Over Monoliths**: Every feature is a library with clear boundaries
+- **Integration Over Isolation**: Test key user paths end-to-end, not every function in isolation
+- **Pragmatism Over Perfection**: Ship working code that solves the problem, iterate later
+- **Focus Over Features**: Build only what's needed for the current user stories
 
-By embedding these principles into the specification and planning process, SDD ensures that generated code isn't just functional—it's maintainable, testable, and architecturally sound. The constitution transforms AI from a code generator into an architectural partner that respects and reinforces system design principles.
+By embedding these principles into the specification and planning process, SDD ensures that generated code isn't just functional—it's maintainable, focused, and ships fast. The constitution transforms AI from a code generator into a pragmatic partner that respects MVP constraints and accelerates delivery.
 
 ## The Transformation
 
